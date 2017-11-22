@@ -15,5 +15,4 @@ namespace MVC5.Models
         public virtual string relatorioServicos { get { return OSBCC.aparelho + "-" + OSBCC.descricao + "-" + OSBCC.valor; } }
 
     }
-}K
-. T
+}
