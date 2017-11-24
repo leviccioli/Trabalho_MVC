@@ -20,8 +20,8 @@ namespace MVC_OSBCC.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        public ApplicationDbContext(): base("MVC5")
+           // : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 

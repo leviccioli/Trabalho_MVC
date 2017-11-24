@@ -26,7 +26,7 @@ namespace MVC5.Models
             [StringLength(35, ErrorMessage = "Tamanho tem que ser no máximo 35 caracteres")]
             public string aparelho { get; set; }
 
-            [Display(Name = "Descricao do problema: ")]
+            [Display(Name = "Descrição do problema: ")]
             [Required(ErrorMessage = "O campo de descricao do problema é obrigatório")]
             [StringLength(300, ErrorMessage = "Campo não pode passar de 300 caracteres")]
             [MinLength(2, ErrorMessage = "Tem que ter no mínimo 2 caracteres")]
