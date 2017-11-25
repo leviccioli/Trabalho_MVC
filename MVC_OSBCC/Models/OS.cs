@@ -36,6 +36,8 @@ namespace MVC5.Models
         [Required(ErrorMessage = "Informe o valor a ser cobrado pelo serviço")]
         public float valor { get; set; }
 
+        //public virtual string nomeCliente { get { return Cliente.nome; } }
+
         [Display(Name = "Lista de Clientes")]
         public virtual ICollection<Cliente> Clientes { get; set; }
 
