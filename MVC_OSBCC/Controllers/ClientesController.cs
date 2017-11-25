@@ -11,7 +11,7 @@ using MVC_OSBCC.Models;
 
 namespace MVC_OSBCC.Controllers
 {
-    [Authorize]
+[Authorize]
     public class ClientesController : Controller
     {
         private Contexto db = new Contexto();

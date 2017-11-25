@@ -1,17 +1,20 @@
 ﻿@model IEnumerable<MVC5.Models.OS>
 
 @{
-    ViewBag.Title = "OS";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Ordens de Serviço</h2>
+<h2>Ordem de serviço</h2>
 
 <p>
     @Html.ActionLink("Criar novo", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cliente.nome)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.aparelho)
         </th>
@@ -26,6 +29,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cliente.nome)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.aparelho)
         </td>

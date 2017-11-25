@@ -11,7 +11,7 @@ using MVC_OSBCC.Models;
 
 namespace MVC_OSBCC.Controllers
 {
-    [Authorize(Roles="Admin")]
+    [Authorize]
     public class OSController : Controller
     {
         private Contexto db = new Contexto();
@@ -19,7 +19,8 @@ namespace MVC_OSBCC.Controllers
         // GET: OS
         public ActionResult Index()
         {
-            return View(db.OrdemServico.ToList());
+            var ordemServico = db.OrdemServico.Include(o => o.cliente);
+            return View(ordemServico.ToList());
         }
 
         // GET: OS/Details/5
@@ -38,8 +39,10 @@ namespace MVC_OSBCC.Controllers
         }
 
         // GET: OS/Create
+        [Authorize(Roles="Admin")]
         public ActionResult Create()
         {
+            ViewBag.clienteID = new SelectList(db.Clientes, "id", "nome");
             return View();
         }
 
@@ -48,7 +51,7 @@ namespace MVC_OSBCC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,aparelho,descricao,valor")] OS oS)
+        public ActionResult Create([Bind(Include = "id,clienteID,aparelho,descricao,valor")] OS oS)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +60,7 @@ namespace MVC_OSBCC.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.clienteID = new SelectList(db.Clientes, "id", "nome", oS.clienteID);
             return View(oS);
         }
 
@@ -72,6 +76,7 @@ namespace MVC_OSBCC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.clienteID = new SelectList(db.Clientes, "id", "nome", oS.clienteID);
             return View(oS);
         }
 
@@ -80,7 +85,7 @@ namespace MVC_OSBCC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,aparelho,peca,descricao,valor")] OS oS)
+        public ActionResult Edit([Bind(Include = "id,clienteID,aparelho,descricao,valor")] OS oS)
         {
             if (ModelState.IsValid)
             {
@@ -88,6 +93,7 @@ namespace MVC_OSBCC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.clienteID = new SelectList(db.Clientes, "id", "nome", oS.clienteID);
             return View(oS);
         }
 

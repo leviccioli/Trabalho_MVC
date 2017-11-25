@@ -8,18 +8,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC5.Models
 {
-    [Table("Ordem de Servico")]
     public class OS
     {
-        public OS()
-        {
-            this.Clientes = new HashSet<Cliente>();
-        }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "ID")]
         public int id { get; set; }
+
+
+        public int clienteID { get; set; }
+        public virtual Cliente cliente { get; set; }
+        public virtual string Nomecliente { get { return cliente.nome; } }
+
 
         [Display(Name = "Aparelho: ")]
         [Required(ErrorMessage = "Campo nome é obrigatório")]
@@ -38,8 +38,7 @@ namespace MVC5.Models
 
         //public virtual string nomeCliente { get { return Cliente.nome; } }
 
-        [Display(Name = "Lista de Clientes")]
-        public virtual ICollection<Cliente> Clientes { get; set; }
+
 
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model MVC5.Models.OS
 
 @{
-    ViewBag.Title = "Detalhes";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,6 +11,14 @@
     <h4>OS</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.nome)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.aparelho)
         </dt>
