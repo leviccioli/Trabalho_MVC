@@ -177,9 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="banner_img\1.jpg" />
-    <Content Include="banner_img\2.jpg" />
-    <Content Include="banner_img\3.jpg" />
-    <Content Include="banner_img\4.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />

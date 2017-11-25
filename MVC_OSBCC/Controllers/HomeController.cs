@@ -15,14 +15,14 @@ namespace MVC_OSBCC.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Sua página de descrição do aplicativo.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Sua página de contato.";
 
             return View();
         }

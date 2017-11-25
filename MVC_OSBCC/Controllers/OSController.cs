@@ -11,7 +11,7 @@ using MVC_OSBCC.Models;
 
 namespace MVC_OSBCC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles="Admin")]
     public class OSController : Controller
     {
         private Contexto db = new Contexto();
@@ -48,7 +48,6 @@ namespace MVC_OSBCC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize (Roles="Admin")]
         public ActionResult Create([Bind(Include = "id,aparelho,descricao,valor")] OS oS)
         {
             if (ModelState.IsValid)
@@ -81,7 +80,7 @@ namespace MVC_OSBCC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,aparelho,descricao,valor")] OS oS)
+        public ActionResult Edit([Bind(Include = "id,aparelho,peca,descricao,valor")] OS oS)
         {
             if (ModelState.IsValid)
             {
